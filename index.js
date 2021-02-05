@@ -15,9 +15,15 @@ The function should:
   Example createMenuItem('tacos', 8, 'Lunch') should return {name: 'tacos', price: 8, category: 'Lunch'}
 */
 
-function createMenuItem(/*Your code here*/){
-    /*Your code here*/
+function createMenuItem(a, b, c) {
+  let newObject = {};
+  newObject.name = a;
+  newObject.price = b;
+  newObject.category = c;
+  return newObject;
 }
+
+console.log(createMenuItem("taco", 8, "lunch"));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 1b: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Invoke your function!
@@ -29,6 +35,17 @@ Test your createMenuItems function by doing the following:
   For example: createMenuItem("pizza",5,"lunch") would return this as the object: {name:"Pizza",price:5,category:"lunch"}
 */
 
+function createMenuItems(a, b, c) {
+  let newObject = {};
+  newObject.name = a;
+  newObject.price = b;
+  newObject.category = c;
+ console.log(newObject);
+}
+
+createMenuItems("pizza", 5, "lunch");
+createMenuItems("beer", 5, "drink");
+createMenuItems("wings", 10, "app");
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -48,10 +65,18 @@ export const burger = {
   name: "Burger", 
   price: 18, 
   category: "Lunch", 
-  /*Your code here*/
+  discount: function (qualification){
+    if (qualification === "teacher" || qualification === "student"){
+      return this.price * 0.75; //25% discount
+  } else if (qualification === "public") {
+    return this.price * 0.9; //10% discount
+  } else {
+    return this.price;
+  }
+  }
 }
 
-
+burger.discount("teacher");
 
 ///////////////Reviews (MVP)///////////////////
 const reviews = [
@@ -70,8 +95,7 @@ Using the reviews array above:
   1. log only Julius' feedback to the console - no function needed 
 */
 
-
-
+console.log(reviews[5].feedback);
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Using the reviews array above do the following: (no function needed) 
@@ -79,7 +103,8 @@ Using the reviews array above do the following: (no function needed)
   2. log the whole array to the console, make sure the new review is inside of it   
 */
 
-
+reviews.push({name: "Stuart", rating: 4, feedback: "This is my fake review"});
+console.log(reviews);
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Reyna's feedback is missing! Use what you know to do the following: (no function needed) 
@@ -87,9 +112,9 @@ Reyna's feedback is missing! Use what you know to do the following: (no function
   2. log the reviews array to the console to check your work
 */
 
+reviews[7].feedback = "this place is chill with really cool people, great for getting work done on weekdays";
 
-
-
+console.log(reviews);
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Write a function to return a review based on the index of the review in the array.
@@ -102,12 +127,11 @@ Use the getReviewByIndex function below to do the following:
 */
 
 
-function getReviewByIndex(/*Your code here*/) {
-  /*Your code here*/
-}
-
-
+function getReviewByIndex (arr, indexNumber) {
+  return arr[indexNumber].name + " gave the restaurant a " + arr[indexNumber].rating + " star review, and their feedback was: " + arr[indexNumber].feedback
+  }
   
+getReviewByIndex (reviews, 0);
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Write a function to get information about the most recent (last) review called `getLastReview`
@@ -121,11 +145,12 @@ Use the getLastReview function below to do the following:
 */
 
 
-function getLastReview(/*Your code here*/) {
-  /*Your code here*/
-} 
-
-
+function getLastReview (arr){ 
+  let lastItemInArray = arr[(arr.length - 1)];
+  return lastItemInArray.name + " gave the restaurant a " + lastItemInArray.rating + " star review, and their feedback was: " + lastItemInArray.feedback;
+  }
+  
+  getLastReview(reviews);
 
 ///////////////🍔☕️🍽 STRETCH🍔☕️🍽////////////////////
 
@@ -143,9 +168,16 @@ Use the getReviewsByRating function below to do the following:
   ]
 */
 
- function getReviewByRating(/* code here */) {
-    /* code here */
+function getReviewByRating(arr, ratingSearch) {
+  let sortedByRating = [];
+  for (let i = 0; i < arr.length; i++){
+    if (arr[i].rating >= ratingSearch && arr[i].rating < (ratingSearch + 1)) {
+      sortedByRating.push(arr[i]);
+    }
+  }  return sortedByRating;
   }
+
+getReviewByRating(reviews, 3);
 
   
 /* 💪💪💪💪💪💪💪💪💪💪 STRETCH 2: 💪💪💪💪💪💪💪💪💪💪   
@@ -183,11 +215,20 @@ Use the carMaker function below to do the following:
   It would return 110 because it was created with 10 as the odometer and we added 100 to it with the drive method 
 */
 
-
-function carMaker(/* code here */) {
-    /* code here */
-    
+const carData = {
+  brand: "GMC",
+  title: "Envoy",
+  odometer: 1000, 
 }
+
+function carMaker(mileage) {
+  carData.drive = functio += milean(mileage) {
+    return this.odometerge;
+  } console.log(carData);
+}
+
+carMaker(100);
+
 
 
 /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
