@@ -68,15 +68,15 @@ export const burger = {
   discount: function (qualification){
     if (qualification === "teacher" || qualification === "student"){
       return this.price * 0.75; //25% discount
-  } else {
+  } else if (qualification === "public") {
     return this.price * 0.9; //10% discount
+  } else {
+    return this.price;
   }
   }
 }
 
 burger.discount("teacher");
-
-
 
 ///////////////Reviews (MVP)///////////////////
 const reviews = [
@@ -132,9 +132,6 @@ function getReviewByIndex (arr, indexNumber) {
   }
   
 getReviewByIndex (reviews, 0);
-
-
-  
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Write a function to get information about the most recent (last) review called `getLastReview`
@@ -218,11 +215,20 @@ Use the carMaker function below to do the following:
   It would return 110 because it was created with 10 as the odometer and we added 100 to it with the drive method 
 */
 
-
-function carMaker(/* code here */) {
-    /* code here */
-    
+const carData = {
+  brand: "GMC",
+  title: "Envoy",
+  odometer: 1000, 
 }
+
+function carMaker(mileage) {
+  carData.drive = functio += milean(mileage) {
+    return this.odometerge;
+  } console.log(carData);
+}
+
+carMaker(100);
+
 
 
 /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
